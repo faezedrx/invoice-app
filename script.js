@@ -52,6 +52,7 @@ function printInvoice() {
     window.print();
 }
 
+
 function downloadPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();

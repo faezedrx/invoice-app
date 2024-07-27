@@ -27,8 +27,13 @@ function generateInvoice() {
         row.insertCell(2).innerText = '$' + item.price;
         row.insertCell(3).innerText = '$' + item.total;
         const actionsCell = row.insertCell(4);
-        actionsCell.innerHTML = `<button onclick="editItem(${index})" class="text-blue-500 hover:underline">Edit</button> 
-                                 <button onclick="deleteItem(${index})" class="text-red-500 hover:underline">Delete</button>`;
+        actionsCell.innerHTML = `
+            <button onclick="editItem(${index})" class="text-blue-500 hover:underline">
+                <i class="fas fa-edit"></i>
+            </button> 
+            <button onclick="deleteItem(${index})" class="text-red-500 hover:underline">
+                <i class="fas fa-trash-alt"></i>
+            </button>`;
     });
 
     totalAmount = items.reduce((sum, item) => sum + item.total, 0);
@@ -51,7 +56,6 @@ function deleteItem(index) {
 function printInvoice() {
     window.print();
 }
-
 
 function downloadPDF() {
     const { jsPDF } = window.jspdf;
